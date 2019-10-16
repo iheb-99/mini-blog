@@ -4,6 +4,7 @@ function get_all_posts()
 {
     global $db;
     $sth = $db->query("SELECT p.id as id, p.title as title, content, id_cat, c.title as cat_title FROM posts as p, categorie as c WHERE id_cat = c.id");
+
     
     return $sth->fetchAll();
 }
@@ -62,6 +63,13 @@ if(isset($_POST)) {
 			modif_caty_post($id,$caty);
 		}
 	}
+	/*if(isset($_POST['modif-cat']))
+	{
+			$id =$_POST['modif-cat'];
+			$caty = $db->query("SELECT title from categorie where id=$id ");
+			modif_cat($id);
+		
+	}*/
 }
 
 
@@ -103,8 +111,13 @@ function modif_caty_post($id,$caty)
 
 }
 
+/*function modif_cat($id,$caty)
+{
+	global $db;
 
+	$db->query("UPDATE posts set id_cat = $caty WHERE id=$id ");
 
+}*/
 
 
 

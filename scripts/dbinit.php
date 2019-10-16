@@ -1,6 +1,6 @@
 <?php
 
-require_once '/code/includes/config.php';
+require_once '../includes/config.php';
 
 $sth = $db->query("CREATE TABLE IF NOT EXISTS posts (
     id              SERIAL PRIMARY KEY,
